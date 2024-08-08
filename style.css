@@ -1,578 +1,526 @@
-n1/* global setting */
 * {
-  box-sizing: border-box;
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
 }
 
 body {
-  background: #000;
-  color: #fff;
-  font-weight: 500;
-  font-family: Arial, sans-serif;
+  background-color: black;
+  color: white;
+  font-family: "Poppins", sans-serif;
 }
 
-ul {
-  list-style: none;
+.navbar {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding: 3% 5%;
+  z-index: 10;
 }
 
-.lg {
-  font-size: 1.5rem;
+.navbar__brand {
+  width: 100px;
+  height: 100%;
 }
 
-/* button style */
-.btn {
-  text-decoration: none;
-  color: #fff;
-  padding: 10px 20px;
-  background: #e50914;
-  border-radius: 5px;
-  font-size: 1.1rem;
+.brand__logo {
+  width: 100%;
+  height: 100%;
+}
+
+.language__drop__down {
+  background: transparent;
+  border: none;
+  color: white;
+}
+
+.language__drop__down:focus {
+  outline: none;
+}
+
+.language__drop__down option {
+  background-color: black;
+}
+
+.dropdown__container {
+  border: 1px solid white;
+  padding: 0.4rem;
+  border-radius: 4px;
+  background: rgba(0, 0, 0, 0.4);
+}
+
+.signin__button {
+  background-color: #dc030f;
+  border: 1px solid #dc030f;
+  color: white;
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+}
+
+.navbar__nav__items {
+  display: flex;
+  gap: 10px;
+}
+
+.hero__bg__image__container {
+  width: 100%;
+  height: 80vh;
+}
+
+.hero__bg__image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.hero__bg__overlay {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 80vh;
+  background: rgba(0, 0, 0, 0.4);
+  background-image: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.8) 0,
+    rgba(0, 0, 0, 0) 60%,
+    rgba(0, 0, 0, 0.8) 100%
+  );
+}
+
+.hero__card {
+  position: absolute;
+  top: 20%;
   text-align: center;
-}
-
-.btn-lg {
-  text-decoration: none;
-  color: #fff;
-  padding: 10px 15px;
-  margin: 0;
-  background: #e50914;
-  border-radius: 5px;
-  font-size: 25px;
-  text-align: center;
-}
-
-.btn-lg:hover {
-  background: #fd1c27;
-}
-
-/* inner container title and text style */
-
-.inner-container {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  gap: 10px;
+}
+
+.hero__title {
+  font-weight: 600;
+  font-size: 2rem;
+}
+
+.hero__subtitle,
+.hero__description {
+  font-weight: 400;
+  font-size: 1rem;
+}
+
+.hero__description {
+  margin: 0 50px;
+}
+
+.email__input {
+  border: none;
+  background: transparent;
+  width: 100%;
+  height: 100%;
+  padding-left: 7px;
+}
+.email__label {
+  color: black;
+  position: absolute;
+  top: 28%;
+  left: 2%;
+  color: rgb(153, 149, 149);
+  transition: 0.5s;
+}
+
+.email__form__container {
+  display: flex;
+  flex-direction: column;
   justify-content: center;
+  align-items: center;
+  gap: 15px;
+}
+
+.form__container {
+  background-color: white;
+  width: 90%;
+  height: 50px;
   position: relative;
-  z-index: 1;
-  line-height: 1.25;
-}
-.inner-title {
-  font-size: 1.8rem;
-  width: 90%;
 }
 
-.inner-title h1 {
-  margin-bottom: 1rem;
+.email__input:focus + .email__label {
+  top: 0.2rem;
+  font-size: 10px;
 }
 
-.inner-text {
-  font-size: 1.5rem;
-  width: 90%;
+.email__input:not(:placeholder-shown).email__input:not(:focus) + .email__label {
+  top: 0.2rem;
+  font-size: 10px;
 }
 
-/* email form */
+.email__input:focus-visible {
+  outline: none;
+}
 
-.email-form {
+.primary__button {
+  background-color: #dc030f;
+  border: 1px solid #dc030f;
+  color: white;
+  padding: 0.8rem 1.2rem;
+  border-radius: 2px;
+  font-size: 15px;
+  letter-spacing: 1px;
+}
+
+.feature {
+  border-top: 8px solid #222;
+  padding: 2rem 1rem;
+}
+
+.feature__details {
+  text-align: center;
+}
+
+.feature__title {
+  font-size: 25px;
+  font-weight: 600;
+  margin: 10px 0;
+}
+
+.feature__sub__title {
+  font-size: 15px;
+  font-weight: 400;
+}
+
+.feature__image__container {
+  width: 100%;
+  position: relative;
+}
+.feature__image {
+  width: 100%;
+}
+
+.feature__backgroud__video__container {
+  position: absolute;
+  width: 100%;
+  top: 20%;
+  left: 13%;
+  height: 100%;
+  max-width: 73%;
+  max-height: 54%;
+  z-index: -2;
+}
+
+.feature__backgroud__video {
+  width: 100%;
+}
+
+.feature__2__poster__container {
+  position: absolute;
+  bottom: 8%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  max-width: 16em;
+  display: flex;
+  align-items: center;
+  background-color: black;
+  border: 2px solid rgba(255, 255, 255, 0.25);
+  border-radius: 10px;
+  height: 60px;
+  padding: 0.25rem 0.6rem;
+  gap: 15px;
+}
+
+.poster__container {
+  width: 20%;
+}
+
+.poster {
+  width: 100%;
+  height: 100%;
+}
+.poster__details {
+  width: 60%;
+}
+.poster__details > h4 {
+  font-size: 13px;
+  font-weight: 500;
+}
+.poster__details > h6 {
+  font-size: 12px;
+  font-weight: 400;
+  color: rgb(63, 63, 246);
+}
+
+.download__gif__container {
+  width: 20%;
+  height: 100%;
+}
+.gif {
+  width: 100%;
+  height: 100%;
+}
+
+.feature__3__backgroud__video__container {
+  max-width: 63%;
+  max-height: 47%;
+  z-index: -2;
+  top: 9%;
+  left: 19%;
+}
+
+.FAQ__accordian {
+  width: 100%;
+}
+.FAQ__title {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding: 15px 20px;
+  font-size: 18px;
+  background-color: #303030;
+  border: 1px solid #303030;
+  color: white;
+}
+
+.FAQ__visible {
+  background-color: #303030;
+  border-top: 1px solid black;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.5s ease-in-out;
+}
+
+.FAQ__visible > p {
   margin: 1rem;
 }
-.email-form .get-started {
-  padding-top: 1rem;
-  display: flex;
-  height: 80%;
-}
-
-.email-form .get-started > input {
-  border-radius: 2px 0 0 2px;
-  border: 3px solid #333;
-  padding-left: 10px;
-  font-size: 1.1rem;
-  outline: none;
-  flex: 1;
-}
-
-.email-form .btn-lg {
-  border-radius: 0 2px 2px 0;
-}
-
-/* header */
-.header {
-  height: 110vh;
-  position: relative;
-  background: url("https://assets.nflxext.com/ffe/siteui/vlv3/8ef88e03-6f89-4c75-ae51-f8da7d252358/6ac07e5f-07ca-4543-8540-f22edce8bb02/TW-en-20210208-popsignuptwoweeks-perspective_alpha_website_small.jpg")
-    no-repeat center center/cover;
-  box-shadow: inset 0 50px 300px #000, inset 0 -50px 300px #000;
-  border-bottom: 10px #333 solid;
-}
-
-/* brightness and vignette effect*/
-.overlay {
-  height: 100%;
-  width: 100%;
-  background: #000;
-  position: absolute;
-  left: 0;
-  top: 0;
-  opacity: 0.4;
-}
-
-/* logo */
-
-.logo {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 1rem 2rem;
-  position: relative;
-  z-index: 1;
-}
-
-.logo > img {
-  width: 150px;
-}
-
-/* header text , input form and button*/
-
-.header .inner-container {
-  margin-top: 10rem;
-}
-
-.header .inner-title {
-  width: 50%;
-  text-align: center;
-}
-
-.header h1 {
-  margin-bottom: 1rem;
-}
-
-.header .inner-text {
-  width: 50%;
-  text-align: center;
-}
-
-/* showcase 1 */
-
-.showcase {
-  border-bottom: 10px solid #333;
+.FAQ__list__container {
+  border-top: 8px solid #222;
   padding: 2rem 0;
 }
-.showcase-container {
-  display: flex;
-  width: 85%;
-  margin: auto;
+.FAQ__heading {
+  font-size: 20px;
+  text-align: center;
+  font-weight: 600;
+  margin: 1rem 3rem;
 }
 
-.showcase-img {
-  position: relative;
-  z-index: 1;
-}
-
-.showcase-animation {
-  position: absolute;
-  left: 75px;
-  top: 95px;
-  z-index: -1;
-}
-
-/* showcase 2*/
-
-.case2 {
-  width: 90%;
-}
-
-.showcase-container.case2 > .showcase-img {
-  margin: 1.2rem 0;
-}
-
-.downloading {
-  background: #000;
-  width: 60%;
-  height: 125px;
-  position: absolute;
-  top: 335px;
-  left: 125px;
-  border: 5px solid #333;
-  border-radius: 10px;
-  padding: 0.7rem;
-  display: flex;
-}
-
-.downloading > img {
-  height: 100%;
-}
-
-.download-text {
-  padding: 0.5rem;
+.FAQ__list {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-items: center;
+  gap: 10px;
 }
 
-.download-text > p {
-  color: #0066e3;
+.FAQ__get__started__email {
+  text-align: center;
 }
 
-/* showcase 3*/
-
-.case3 .showcase-animation {
-  width: 395px;
-  height: 225px;
-  top: 50px;
-  left: 120px;
-}
-
-/* faq list */
-.faq {
-  border-bottom: 10px solid #333;
-}
-
-.faq .inner-container {
-  line-height: 1.5;
+.FAQ__get__started__email > h3 {
+  font-size: 18px;
+  font-weight: 400;
   margin: 2rem 0;
 }
 
-.faq .inner-title {
-  text-align: center;
-}
-.faq h1 {
-  margin-bottom: 5rem;
-}
-
-.faq h2 {
-  display: flex;
-  justify-content: space-between;
-  padding: 1.5rem;
-}
-
-.faq ul {
-  width: 60%;
-  margin: auto;
-}
-
-.faq li {
-  border-bottom: 5px solid #000;
-  background: #333;
-  cursor: pointer;
-}
-
-.faq li.show i {
-  transform: rotate(45deg);
-}
-
-.faq li > p {
-  padding: 1rem 0;
-  border-top: 1px solid #000;
-  padding: 1.5rem;
-  font-size: 1.3rem;
-  position: absolute;
-  max-height: 0;
-  visibility: hidden;
-  transition: max-height 0.1s ease-in;
-}
-
-.faq .inner-text {
-  margin-top: 2rem;
-}
-
-/* show list item */
-.faq li.show p {
-  max-height: 700px;
-  position: relative;
-  visibility: visible;
-}
-
-/* footer */
-
 footer {
+  border-top: 8px solid #333;
+  padding: 2rem 1rem;
   color: #757575;
-  margin: 3rem auto;
-  width: 70%;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
 }
 
-footer .links > * {
-  margin-bottom: 20px;
+.footer__row__2 {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  gap: 20px;
 }
 
-footer p {
-  margin-bottom: 2rem;
+.footer__row__1 > h4 {
+  font-size: 15px;
+  font-weight: 500;
 }
 
-footer .links ul {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  grid-gap: 1rem;
+.footer__row__3 > .dropdown__container {
+  width: fit-content;
+  border: 1px solid #757575;
+  color: #757575;
 }
 
-footer .language {
-  padding: 1rem 0;
-  font-weight: 700;
-  cursor: pointer;
-  width: 14%;
-  border: 1px solid #333;
-  border-radius: 0.2rem;
-  font-family: inherit;
-  padding: 1rem;
-  position: relative;
+.footer__row__3 > .dropdown__container > .language__drop__down {
+  color: #757575;
 }
 
-footer .language:active {
-  outline: 1px solid #fff;
-  box-shadow: 0 0 0 2px #fff;
-}
-
-footer .dropdown-list {
-  width: 100%;
-}
-
-footer .dropdown-list ul {
-  display: none;
-  position: absolute;
-  background: #000;
-  border: 1px solid #333;
-  top: 58px;
-  width: 100%;
-  left: 0;
-}
-
-footer .dropdown-list li {
-  margin: 0.5rem 0;
-}
-
-/* show dropdown item */
-footer .dropdown-list ul.show {
-  display: block;
-}
-
-/* large-screen*/
-
-@media (max-width: 950px) {
-  /* global setting */
-
-  /* button */
-  .btn-lg {
-    padding: 10px 12.5px;
-    font-size: 15px;
-    text-align: center;
-    margin: 10px auto;
+@media (min-width: 768px) {
+  .hero__bg__image__container {
+    height: 100vh;
   }
 
-  /* text style */
-
-  .inner-title {
-    font-size: 1.6rem;
-    text-align: center;
-    width: 100%;
+  .hero__bg__overlay {
+    height: 100vh;
+  }
+  .hero__card {
+    top: 40%;
+    left: 30%;
+    transform: translate(-20%, -20%);
+  }
+  .hero__title {
+    font-size: 3rem;
+  }
+  .hero__subtitle,
+  .hero__description {
+    font-size: 1.3rem;
   }
 
-  .inner-text {
-    font-size: 1.2rem;
-    width: 100%;
-    text-align: center;
+  .feature {
+    padding: 4rem;
   }
 
-  /* email form */
-  .email-form .get-started {
-    padding-top: 1rem;
+  .feature__title {
+    font-size: 35px;
+  }
+
+  .feature__sub__title {
+    font-size: 20px;
+  }
+  .feature__2__poster__container {
+    max-width: 26em;
+    height: 85px;
+  }
+  .poster__container {
+    width: 15%;
+  }
+  .download__gif__container {
+    width: 3rem;
+    height: 3rem;
+  }
+
+  .poster__details > h4 {
+    font-size: 18px;
+  }
+  .poster__details > h6 {
+    font-size: 14px;
+  }
+  .FAQ__title {
+    font-size: 20px;
+  }
+  .FAQ__heading {
+    font-size: 38px;
+    font-weight: 500;
+    letter-spacing: 1px;
+  }
+  .FAQ__list {
+    padding: 1rem 5rem;
+  }
+  .FAQ__get__started__email {
+    width: 75%;
     display: flex;
     flex-direction: column;
-  }
-
-  .email-form .get-started > input {
-    padding: 1rem;
-    font-size: 1.1rem;
-  }
-
-  /* nav logo */
-  .logo > img {
-    width: 120px;
-  }
-
-  /* header */
-  .header {
-    height: 100%;
-  }
-
-  .header .inner-title {
-    width: 70%;
-  }
-
-  /* showcase */
-  .showcase-container {
-    flex-direction: column;
-    width: 90%;
-  }
-
-  .showcase-img {
-    display: flex;
     justify-content: center;
+    transform: translateX(15%);
+  }
+}
+
+@media (min-width: 1024px) {
+  .navbar {
+    padding: 2% 5%;
   }
 
-  .showcase-animation {
-    left: 180px;
-    top: 95px;
-    z-index: -1;
+  .navbar__brand {
+    width: 150px;
   }
 
-  .case2 .showcase-img {
-    order: 2;
+  .signin__button {
+    padding: 10px 20px;
+    font-size: 18px;
+  }
+  .dropdown__container {
+    padding: 10px 5px;
   }
 
-  .case3 .showcase-animation {
-    top: 50px;
-    left: 218px;
+  .navbar__nav__items {
+    gap: 30px;
   }
 
-  /* faq list */
-  .faq ul {
-    width: 90%;
-    margin: auto;
+  .hero__card {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
   }
 
-  .faq h2 {
+  .form__container {
+    width: 50%;
+  }
+  .email__form__container {
+    flex-direction: row;
+    align-items: center;
+    gap: 1px;
+  }
+  .primary__button {
+    height: 50px;
+  }
+
+  .feature {
     display: flex;
+    align-items: center;
     justify-content: space-between;
-    padding: 0.5rem 1rem;
-    font-size: 1.2rem;
+    gap: 20px;
   }
 
-  /* footer */
-  footer {
-    width: 90%;
+  .feature__details {
+    text-align: left;
+    padding: 0 6rem;
   }
 
-  footer .language {
+  .feature__title {
+    font-size: 50px;
+  }
+
+  .feature__sub__title {
+    font-size: 25px;
+  }
+
+  .feature__image__container {
+    max-width: 500px;
+  }
+
+  .feature:nth-child(even) {
+    flex-direction: row-reverse;
+  }
+
+  .feature__2__poster__container {
+    max-width: 20em;
+    height: 100px;
+    padding: 1rem;
+  }
+  .poster__container {
     width: 20%;
   }
-}
-
-/* tablet-screen */
-@media (max-width: 768px) {
-  .header .inner-container {
-    margin-top: 2rem;
+  .FAQ__list {
+    padding: 1rem 25rem;
+  }
+  .FAQ__get__started__email {
+    transform: translateX(16%);
+  }
+  footer {
+    padding: 2rem 20rem;
+    justify-content: flex-start;
+    text-align: left;
+    align-items: flex-start;
   }
 
-  .inner-title {
-    width: 90%;
-    font-size: 1.5rem;
+  .footer__row__2 {
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: nowrap;
   }
 
-  .inner-text {
-    width: 90%;
-    font-size: 1.5rem;
-  }
-  .case1 .showcase-animation {
-    left: 100px;
-  }
-
-  .case3 .showcase-animation {
-    left: 135px;
-  }
-  /* button */
-
-  .btn {
-    padding: 10px 15px;
-    font-size: 15px;
+  .footer__row__1,
+  .footer__row__3,
+  .footer__row__4 {
+    align-self: flex-start;
   }
 }
 
-/* median-screen*/
-@media (max-width: 550px) {
-  /* nav logo */
-
-  .logo > img {
-    width: 100px;
-  }
-
-  /* showcase*/
-  .inner-text .get-started > input {
-    padding: 0.5rem;
-    font-size: 1.1rem;
-  }
-  .showcase-img {
-    display: flex;
-    justify-content: center;
-  }
-
-  .showcase-img > img {
-    width: 100%;
-  }
-
-  .case1 .showcase-animation {
-    width: 400px;
-    left: 35px;
-    top: 45px;
-  }
-
-  .case3 .showcase-animation {
-    width: 300px;
-    top: 0;
-    left: 85px;
-  }
-
-  .downloading {
-    top: 260px;
-    left: 95px;
-    height: 70px;
-    border: 3px solid #333;
-  }
-
-  .download-text {
-    font-size: 10px;
-    padding-left: 15px;
-  }
-
-  /* faq list */
-  .faq h1 {
-    text-align: center;
-    font-size: 25px;
-    margin-bottom: 0.5rem;
-  }
-
-  .faq ul {
-    width: 100%;
-  }
-  .faq li {
-    font-size: 10px;
-  }
-
-  /* footer */
-  footer .links ul {
-    grid-template-columns: repeat(2, 1fr);
-    grid-gap: 1rem;
-  }
-}
-
-@media (max-width: 375px) {
-  .inner-title {
-    font-size: 1rem;
-  }
-  .inner-text {
-    font-size: 1rem;
-  }
-
-  /* header */
-
-  .header .inner-title {
-    width: 90%;
-  }
-  .header .inner-text {
-    width: 90%;
-  }
-  /* showcase */
-  .case1 .showcase-animation {
-    width: 250px;
-    left: 45px;
-    top: 50px;
-  }
-
-  .case3 .showcase-animation {
-    width: 210px;
-    left: 60px;
-    top: -25px;
-  }
-  .downloading {
-    top: 180px;
-    left: 66px;
-  }
+@media (min-width: 1254px) {
 }
