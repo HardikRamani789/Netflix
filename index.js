@@ -1,12 +1,20 @@
-const languageDropdown = document.getElementById("language-btn")
-const faqListItem = document.querySelectorAll(".inner-container ul li")
+let accordian = document.getElementsByClassName("FAQ__title");
 
-languageDropdown.addEventListener("click", () => {
-  document.getElementById("language-dropdown").classList.toggle("show")
-})
+for (let i = 0; i < accordian.length; i++) {
+  accordian[i].addEventListener("click", function () {
+    if (this.childNodes[1].classList.contains("fa-plus")) {
+      this.childNodes[1].classList.remove("fa-plus");
+      this.childNodes[1].classList.add("fa-times");
+    } else {
+      this.childNodes[1].classList.remove("fa-times");
+      this.childNodes[1].classList.add("fa-plus");
+    }
 
-faqListItem.forEach((item) => {
-  item.addEventListener("click", (e) => {
-    item.classList.toggle("show")
-  })
-})
+    let content = this.nextElementSibling;
+    if (content.style.maxHeight) {
+      content.style.maxHeight = null;
+    } else {
+      content.style.maxHeight = content.scrollHeight + "px";
+    }
+  });
+}
